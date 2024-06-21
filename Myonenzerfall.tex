@@ -49,7 +49,7 @@
 
 \usepackage{siunitx}
 \sisetup{
-	locale = DE ,
+	locale = DE,
 	separate-uncertainty = false,
 	%per-mode = fraction,
 	%per-mode = symbol
@@ -78,7 +78,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{\theauthor}
-\lhead{UI-Kennlinien}
+\lhead{Myonenzerfall}
 \cfoot{\thepage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -104,10 +104,10 @@
 		
 		\begin{minipage}{0.49\textwidth}
 			\begin{flushleft}
-				\emph{Praktikumsbetreuer:}\\
-				\fehlt\\
-				%  Affiliation\\
-				\small{\href{mailto:marius.mueller@physik.uni-giessen.de}{\fehlt}}
+				% \emph{Praktikumsbetreuer:}\\
+				% \fehlt\\
+				% %  Affiliation\\
+				% \small{\href{mailto:marius.mueller@physik.uni-giessen.de}{\fehlt}}
 			\end{flushleft}
 		\end{minipage}~
 		\begin{minipage}{0.49\textwidth}
@@ -142,25 +142,48 @@
 %\setcounter{chapter}{-1}
 \chapter*{Einleitung}
 	\addcontentsline{toc}{chapter}{Einleitung}
+	Das Myon, ein Teilchen der Leptonenfamilie wie das Elektron, ist aufgrund seiner kurzen Lebensdauer und seiner Fähigkeit, die Erdoberfläche zu erreichen, besonders interessant für die Hochenergiephysik. Mit einer Masse, die etwa \num{200} Mal größer ist als die des Elektrons, bietet das Myon spannende Möglichkeiten für physikalische Untersuchungen. Ziel des Experiments ist es, die Lebensdauer dieser kosmischen Myonen zu bestimmen. Diese Myonen stammen aus der kosmischen Strahlung, die permanent auf die Erde trifft. Um die Lebensdauer zu messen, wird zunächst eine Energieeichung durchgeführt, bei der das Energiespektrum einer \ce{^60Co}"~Quelle aufgenommen wird. Danach wird die Energiedeposition minimal ionisierender Myonen in einem \ce{NaI}-Szintillationsdetektor ermittelt. Schließlich wird der endgültige Versuchsaufbau eingerichtet, eine Zeiteichung vorgenommen und eine einwöchige Datenaufnahme gestartet.
+
+
+	% notiz an mich: mit "~ bewirke ich einen geschützten bindestrich an dem nicht getrennt werden darf.
+	% nur eine ~ macht ein geschütztes (normales) Leerzeichen. \, macht ein halbes geschütztes Leerzeichen.
+
+\chapter{Theorie}
+	\section{Myonen}
+	Das Myon, ein grundlegendes Teilchen der Leptonenfamilie, weist eine negative Elementarladung und eine Masse von etwa \qty{105,658}{\mega\electronvolt\per c\squared} auf, was etwa dem 200"~fachen der Elektronenmasse entspricht. Aufgrund seiner Natur als Fermion besitzt es einen Spin von $\nicefrac{1}{2}$ und unterliegt sowohl der elektromagnetischen als auch der schwachen Wechselwirkung, zeigt jedoch keine starke Wechselwirkung. Das Antiteilchen des Myons ist das Antimyon, welches dieselbe Masse und Spin, jedoch eine entgegengesetzte Ladung aufweist. \\
+
+	Myonen entstehen hauptsächlich aus der kosmischen Strahlung, die durch die Wechselwirkung hochenergetischer Protonen mit den Gasmolekülen der Erdatmosphäre erzeugt wird. Diese Kollisionen führen zur Entstehung von Pionen, die anschließend in Myonen und Myon-Neutrinos zerfallen. Aufgrund ihrer kurzen Lebensdauer von etwa \qty{2,2}{\micro\second} im Ruhesystem stellt sich die Frage, wie sie die Erdoberfläche erreichen können. Hier kommt die spezielle Relativitätstheorie ins Spiel: Durch die Zeitdilatation wird die Lebensdauer der Myonen relativ zur Erdoberfläche verlängert, sodass sie mehrere Kilometer zurücklegen können, bevor sie zerfallen. Aus Inertialsystem der Myonen betrachtet erfahren sie aufgrund der Lorentz-Kontraktion eine Längenverkürzung in Bewegungsrichtung, was ihre Wahrscheinlichkeit erhöht, die Erdatmosphäre zu durchdringen. \\
+	
+	In Experimenten wird die Zerfallszeit der Myonen gemessen, indem die Produkte ihres Zerfalls, ein Elektron und ein Antielektron-Neutrino, detektiert werden. Für diese Messungen werden \ce{NaI}-Szintillationsdetektoren eingesetzt, die die Energiedeposition der minimal ionisierenden Myonen bestimmen. 
+
+	\fehlt immernoch was. vor allem Zerfallsreaktionen! o\_o
+	\section{Messung gestoppter Myonen}
+		
+
+\chapter{Aufbau und Messprinzip}
 	\fehlt
 
-
-
-\chapter{Versuchsaufbau und Durchführung}
-	\fehlt
+\chapter{Durchführung}
+	\section{Energieeichung}
+		\fehlt
+	\section{Messung der Lebensdauer}
+		\fehlt
 
 \chapter{Auswertung}
-	\fehlt
-
-
+	\section{Energieeichung}
+		\fehlt
+	\section{Zeiteichung}
+		\fehlt
+	\section{Lebensdauerbestimmung}
+		\fehlt
 
 
 \chapter{Fazit}
 
 	\listoffigures
-	\addcontentsline{toc}{chapter}{\listfigurename}
+	% \addcontentsline{toc}{chapter}{\listfigurename}
 	
-	\begin{thebibliography}{111} \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+	\begin{thebibliography}{111} %\addcontentsline{toc}{chapter}{Literaturverzeichnis}
 		\bibitem{Anleitung}
 		\fehlt
 		
