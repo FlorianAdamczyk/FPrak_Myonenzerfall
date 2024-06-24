@@ -49,13 +49,13 @@
 
 \usepackage{siunitx}
 \sisetup{
-	locale = DE,
-	separate-uncertainty = false,
+	separate-uncertainty = true,
 	%per-mode = fraction,
 	%per-mode = symbol
 }
 \DeclareSIUnit\bar{bar}
 \DeclareSIUnit\atomicmassunit{u}
+\usepackage{isotope}
 
 
 \setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
@@ -183,19 +183,122 @@
 		% Das ist mein letzter commit bis Sonntagnachmittag. erst dann habe ich wieder Zeit weiterzuarbeiten. bin leider nicht so weit gekommen wie ich dachte...
 
 \chapter{Aufbau und Messprinzip}
-	\fehlt
+	\section{Szintillator und Photomultiplier}
+	In diesem Experiment werden die kosmischen Myonen mittels eines Szintillatonsdetektors gemessen. Dafür werden die Myonen in dem  Szintillatonskristall gestoppt. Wie dadurch ein Messbares Signal entsteht, soll im folgenden kurz erläutert werden.\\
+	Wenn geladene Teilchen, wie das Myon durch den Natriumiodit Kristall fliegen, regen diese die Elektronen in den Hüllen der Atome im Kristall an und heben sie damit auf ein höheres Energieniveau. Im Kristall werden somit Elektronen und Löcher freigesetzt, wenn diese sofort rekombinieren würden, würde ein hochenergetisches Photon entstehen, dieses hätte die gleiche Abregunsenergie wie die Anregungsenergie von $NaI$, damit kann es nicht im Szintillator gemessen werden.\\
+	Die Lösung ist, dass der Kristall dotiert wird, bei $NaI$ typischerweise mit Thallium. Dadurch werden zusätzliche Energieniveaus in dem Kristall hinzugefügt. So wandern die Elektronen und Löcher über diese Niveaus zu den sogenannten Lumineszenzzentren. Dieses angeregte Zentrum, regt sich über die Aussendung von optischen Photonen habt. Diese haben nun deutliche geringere Energien, im sichtbaren oder UV-Bereich und können durch den Kristall zum Photomultiplier wandern.\\
+	Wenn ein optisches Photon auf die Photokathode des Photomultipliers trifft, kann durch den Photoeffekt ein Photoelektron entstehen. Dieser Prozess ist abhängig von der Quanteneffizienz des Anoden Materials, dass bedeutet nicht jedes Photon erzeugt ein Photoelektron. Falls ein Elektron entstandenen ist, wird es auf ein Elektrode gelenkt, trifft es auf dieser sogenannten Dynode, schlägt es weitere Elektronen heraus. Diese treffen erneut auf eine weitere Dynode, der Prozess wiederholt sich einige Male. So einstehen durch ein Schneeballsystem viele Elektronen, die so einstehende Ladung kann gemessen werden.  
+	
+	 
+	\section{elektronische Signalverabeitung}
+	\subsection{Messprinzip der Energiemessung}\label{ch:EnergieMessung}
+	In der ersten Messung wird das Gammaspektrum einer Cobalt-60 Quelle aufgezeichnet. Der verwendete Messaufbau ist in der Abbildung \ref{img:EnergieAufbau} schematisch dargestellt. Wie im vorherigen Kapitel beschrieben, gibt der Photomultiplier ein Signal aus, dieses ist negativ. Der Hauptverstärker invertiert das Signal und gibt es dann dem Analog-Digital-Umwandler. Mit diesem kann der Computer ein Histogramm speichern. Der verwendete ADC hat 8064 Kanäle.
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/Energiemessung.pdf}		
+		\caption{Messprinzip der Energiemessung, simpler Aufbau aus Szintillator mit PMT, Verstärker und ADC}
+		\label{img:EnergieAufbau}
+	\end{figure}
+	\subsection{Messprinzip der Zeitmessung}
+	Das Prinzip der Zeitmessung besteht darin, die Myonen im Szintillator vollständig zu stoppen und dann die Zeit bis zu ihrem Zerfall zu bestimmen. Durch die Zeitdifferenz kann die Lebensdauer bestimmt werden. Wenn ein Signal detektiert wird, ist nicht klar ob es ein Start oder Stopp Signal eines Myons war. Deshalb gilt jedes Signal sowohl als Start und Stopp gleichzeitig. In der Abbildung \ref{img:ZeitEinfach} ist der Aufbau zu sehen.
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/ZeitmessungEinfach.pdf}		
+		\caption{Schematischer Aufbau der Zeitmessung, jedes Signal wird als Start und Stop Signal verwendet, wobei dem Start ein Delay hinzugefügt wird }
+		\label{img:ZeitEinfach}
+	\end{figure}
+	Durch eine Verzögerung von \SI{150}{\nano \second}, kommt das Startsignal nach dem Stoppsignal im Time to Pulse Height Converter (TPC) an. Der TPC liefert ein Signal welches proportional zur Zeitdifferenz zwischen Start und Stopp ist. Mit Hilfe dieser Differenz, kann die Lebensdauer ermittelt werden.\\
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/ZeitmessungKomplex.pdf}		
+		\caption{Vollständiger schematischer Messaufbau}
+		\label{img:ZeitmessungKomplex}
+	\end{figure}
+	Der vollständige Messaufbau mit allen Komponenten ist in \ref{img:ZeitmessungKomplex} abgebildet, im Gegensatz zum prinzipiellen Aufbau aus Abbildung \ref{img:ZeitEinfach}, sind elektronische Komponenten hinzugekommen. Wie zum Beispiel ein Timing Filter Amplifier (TFA), dieser Verstärkt das Signal, ohne es stark zu verzerren. Der erste Diskriminator soll den natürlichen radioaktiven Untergrund abschneiden. Das um \SI{150}{\nano \second} Verzögerte Signal, wird in einem weiteren Diskriminator wieder zum guten Rechtecksignal verarbeitet. weil es durch die lange Kabelführung im Delay verzerrt wird. Der TPC welcher die Zeitdifferenz von Start uns Stopp ermittelt, gibt zusätzlich zu seiner grundsätzlichen Arbeitsweise, noch ein logisches Signal bei jedem "Start" aus. Dieses wird an einen Scaler gegeben, welcher einfach die Ereignisse zählt.
+	
+	
+	
 
-\chapter{Durchführung}
-	\section{Energieeichung}
-		\fehlt
-	\section{Messung der Lebensdauer}
-		\fehlt
 
-\chapter{Auswertung}
+\chapter{Auswertung der Daten}
+
+
 	\section{Energieeichung}
-		\fehlt
+		Zu aller erst soll sich mit dem Versuchsaufbau vertraut gemacht werden. Hierfür wird das Energiespektrum einer \isotope[60]{Co}-Probe aufgenommen. Der verwendete Messaufbau wurde im Kapitel \ref{ch:EnergieMessung} erläutert. Das ermittelte Spektrum ist in Abbildung \ref{img:GammaCo60} dargestellt, das Spektrum ist zweimal abgebildet, wobei das untere mit logarithmischer y-Achse dargestellt ist.\\
+		Es sind die beiden typischen Gammapeaks bei \SI{1173.2}{\kilo \eV} und \SI{1332.5}{\kilo \eV} erkennbar, zusätzlich ist gerade in der logarithmischen Darstellung, gut der Summenpeak dieser beiden zu erkennen. 
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=\textwidth]{Bilder/GammaCo60.pdf}		
+			\caption{Gammspektrum der \isotope[60]{Co}-Probe, es lassen sich die 2 Gamma Peaks erkennen, in der logarithmischen Darstellung, ist auch der Summenpeak deutlich sichtbar}
+			\label{img:GammaCo60}
+		\end{figure}
+	Mit Hilfe der Kenntnis über die ungefähre Lage des Summenpeaks, soll der Verstärker so eingestellt werden, dass ein Energiebereich für die minimal ionisierenden
+	Myonen gewählt wird, da diese das Ziel der eigentlichen Messung sind. (Energiebereichschätzung sollte erwähnt werden \fehlt)
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/gesamterEnBereich.pdf}		
+		\caption{Gesamtes Energiespektrum, welches während der Zeitmessung verwendet wird}
+		\label{img:gesamterEnBereich}
+	\end{figure}
+	Der gesamte Energiebereich ist in Abbildung \ref{img:gesamterEnBereich} zu erkennen, es ist erneut logarithmisch aufgetragen. Auf der linken Seite ist noch die \isotope[60]{Co}-Quelle zu erkennen. zwischen den Kanälen 3000 und 8000, befinden sich die Energieeinträge der kosmischen Myonen. Da sie eine hohe Energie besitzen und nur durch eine relativ dünne Schicht zur Ionisation fliegen, sollte ihr Energiedeposit nach Bethe-Bloch einer Landau-Verteilung entsprechen.\\
+	Deshalb wurde in Abbildung \ref{img:MyonenLandau}, das Energiespektrum im entsprechendem Bereich erneut geplottet. Zudem wurden jeweils 16 Kanäle zu einem zusammengefasst, sodass nur noch 512 übrig bleiben, weil es sehr wenige Einträge pro Kanal gibt. Qualitativ wurde eine Landauverteilung an die Daten gefittet, quantiative Werte können ohne eine komplette Energieeichung nicht angegeben werden. Die Verteilung passt sich gut an die Daten, auf der linken Seite des Spektrums, sind vermutlich noch Resteffekte von radioaktiver Strahlung erkennbar. 
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/MyonenLandau.pdf}		
+		\caption{Energiedepositspektrum der kosmischen Myonen im Szintillator, mit einem qualitativer einer Landauverteilung}
+		\label{img:MyonenLandau}
+	\end{figure}
 	\section{Zeiteichung}
-		\fehlt
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/zeitEich.pdf}		
+		\caption{Spektrum der Zeiteichung, zu sehen sind die einzelnen Peaks für die jeweiligen Verzögerungen, angefangen bei \SI{300}{\nano \s} und in \SI{150}{\nano \s} Schritten bis \SI{1800}{\nano \s}}
+		\label{img:zeitEich}
+	\end{figure}
+	Der ADC gibt Kanäle an den Computer, diese müssen mittels einer Zeiteichung in Zeitwerte [s] umgerechnet werden. Dafür werden bekannte Verzögerungen vor das Stop-Signal in die Messstrecke eingebaut. Im aufgenommen Spektrum \ref{img:zeitEich}, sind die Zeitpeaks für die jeweiligen Verzögerungen erkennbar.\\
+	Diese Messdaten haben einen statistischen Fehler, dies hat zur Folge, dass die Messdaten Gaußverteilt sind. Die Gaußverteilung ist gegeben durch:
+	\begin{equation}
+		f(x) = A \cdot exp\left(- \frac{(x-\mu)^2}{2 \sigma ^2}\right)
+	\end{equation}
+	Wobei $A$ die Höhe des Peaks ist, $\mu$ die Lage, beziehungsweise der Erwartungswert und $\sigma$ die Standartabweichung. Die Ereignisse für den Erwartungswert der Kanallagen für die Fits sind in Tabelle \ref{table:TimeFits} aufgelistet. Die Fits mit allen Parametern sind im Anhang des Protokolls zu finden \ref{img:TimeGauss}.
+	\begin{table}[]
+		\centering
+		\begin{tabular}{cc}
+			\toprule[1.5pt]
+			Verzögerung [\si{\nano \s}] & Kanallage mit Fehler\\ 
+			\midrule
+			300	 & 179.365 $\pm$ 0.032 \\
+			450	 & 319.563 $\pm$ 0.143 \\
+			600	 & 503.994 $\pm$ 0.005 \\
+			750	 & 675.221 $\pm$ 0.017 \\
+			900	 & 840.574 $\pm$ 0.014 \\
+			1050	 & 1010.521 $\pm$ 0.014 \\
+			1200	 & 1181.558 $\pm$ 0.014 \\
+			1350	 & 1354.155 $\pm$ 0.020 \\
+			1500	 & 1529.726 $\pm$ 0.017 \\
+			1650	 & 1707.906 $\pm$ 0.021 \\
+			1800	 & 1883.973 $\pm$ 0.023 \\
+
+			
+			\bottomrule[1.5pt]
+		\end{tabular}
+		\caption{}
+		\label{table:TimeFits}
+	\end{table}
+	Zwischen dem Kanal und der bekannten Verzögerung besteht ein linearer Zusammenhang. Diese lineare Funktion wurde mittels einer gewichteten linearen Regression ermittelt, anzumerken sei, dass die Fehler der Kanallagen sehr klein sind, sodass sie kaum einen Einfluss auf den Fit haben \ref{img:timeLinearFit}.
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/timeLinearFit.pdf}		
+		\caption{Gewichteter linearer Fit, der Kanallagen zu den Verzögerungen, wobei die Fehler der Kanallagen sehr klein sind und deshalb nicht im Plot erkennbar sind}
+		\label{img:timeLinearFit}
+	\end{figure}
+	Damit besteht nun folgender Zusammenhang zwischen Zeitdifferenz $\Delta t$ und dem Kanal $K$:
+	\begin{equation}
+		\Delta t(K) = \SI{0.875551(0.000008)}{\nano \s} \cdot K + \SI{159.529662(0.007652)}{\nano \s}
+	\end{equation}
+	Die Fehler der Eichung sind sehr klein, was an der hohen Zahl von Eichpunkten liegen kann.
+
+		
 	\section{Lebensdauerbestimmung}
 		\fehlt
 
@@ -217,6 +320,12 @@
 \chapter*{Anhang} \label{ch:Anhang}
 \addcontentsline{toc}{chapter}{Anhang}
 \FloatBarrier
+	\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/timeGaussFits.pdf}		
+	\caption{Gaußfits der einzelnen Zeitmessungen für die Zeiteichung}
+	\label{img:TimeGauss}
+\end{figure}
 
 
 
