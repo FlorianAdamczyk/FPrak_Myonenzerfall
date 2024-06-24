@@ -168,9 +168,13 @@
 	Es kann auch zusätzlich ein Photon emittiert werden:
 	\[\mu^{-}_{m} \rightarrow e^{-} + \nu_e + \nu_{\mu} + \gamma \]
 	
+	Negative Myonen sind instabile Elementarteilchen, die sowohl im Vakuum als auch in Materie zerfallen können. Im Gegensatz zu ihrem Verhalten im Vakuum haben negative Myonen in Materie einen zusätzlichen Zerfallskanal.
 	
-	\fehlt immer noch was. vor allem Zerfallsreaktionen? o\_o
-	\section{Messung gestoppter Myonen}
+	Ein Myon kann mit einem Atomkern wechselwirken und ein sogenanntes “myonisches Atom” bilden. Da Myonen und Elektronen im Wesentlichen nur durch ihre Masse unterschieden werden, können sie sich auch an Atomkerne binden. Aufgrund ihrer deutlich höheren Masse sind Myonen jedoch viel stärker an den Kern gebunden. Dadurch haben sie eine etwa siebenfach höhere Wahrscheinlichkeit, sich im Kernbereich aufzuhalten.
+	
+	Dies führt dazu, dass ein Myon in Materie analog zum Elektroneneinfang vom Kern absorbiert werden kann. Dabei wird ein Proton in ein Neutron umgewandelt, und ein Myonneutrino wird emittiert. Dieser zusätzliche Zerfallskanal beeinflusst die experimentell bestimmte durchschnittliche Lebensdauer von negativen Myonen in Materie, die kürzer ist als im Vakuum.
+
+	\section{Messung gestoppter Myonen} \label{ch:Mess}
 		Das Zerfallsgesetz von Myonen lautet:
 		\[\frac{dN}{dt}= -\lambda N(t)\]
 		und die allgemeine Lösung dieses Gesetzes ist:
@@ -180,11 +184,16 @@
 		Setzt man das in das Zerfallsgesetz ein erhält man:
 		\[T_{\nicefrac{1}{2}} = \frac{\ln(2)}{\lambda} = \tau \cdot \ln(2) \].
 		
-		% Das ist mein letzter commit bis Sonntagnachmittag. erst dann habe ich wieder Zeit weiterzuarbeiten. bin leider nicht so weit gekommen wie ich dachte...
+		Um Myonen zu detektieren, werden sie in einem Natriumiodid (NaI)-Detektor eingefangen, und die Zerfallsprodukte werden gemessen. Die Grenzenergie, bei der Myonen in einem 10 cm dicken NaI-Material gestoppt werden können, lässt sich aus Abbildung 7 in der Anleitung  \cite{Anleitung} ablesen.
+		
+		Die Dichte des NaI-Materials beträgt $\rho = 3,67 g/cm^3$, was einer Dicke von l = 10 cm entspricht ($\rho_l = 36,7 g/cm^2$). Myonen, deren Reichweite (durch ihre Energie bestimmt) über diesem Wert liegt, werden nicht mehr gestoppt. Diese Reichweite wird als Grenzenergie definiert. Abbildung 7 zeigt, dass diese Reichweite für eine Grenzenergie von etwa $E_max  \qty{90}{\mega\electronvolt} \text{ bis } \qty{100}{\mega\electronvolt}$ erreicht wird.
+		
+		Der Begriff \glqq minimal ionisierend\grqq ~bezieht sich auf Teilchen, die genau den Impuls aufweisen, bei dem die Änderung der übertragenen Energie pro zurückgelegter Strecke, minimal ist. Die Analyse von Abbildung 6 in der Anleitung verdeutlicht, dass dieses Minimum im Bereich von 200 GeV/c bis 300 GeV/c liegt und einen Wert von \qty{1,2}{\mega \electronvolt\per\gram} bis \qty{1,3}{\mega \electronvolt\per\gram} erreicht.
+		
 
 \chapter{Aufbau und Messprinzip}
 	\section{Szintillator und Photomultiplier}
-	In diesem Experiment werden die kosmischen Myonen mittels eines Szintillatonsdetektors gemessen. Dafür werden die Myonen in dem  Szintillatonskristall gestoppt. Wie dadurch ein Messbares Signal entsteht, soll im folgenden kurz erläutert werden.\\
+	In diesem Experiment werden die kosmischen Myonen wie im vorangestellten Kapitel \ref{ch:Mess} mittels eines Szintillatonsdetektors gemessen. Wie dadurch ein Messbares Signal entsteht, soll im folgenden kurz erläutert werden.\\
 	Wenn geladene Teilchen, wie das Myon durch den Natriumiodit Kristall fliegen, regen diese die Elektronen in den Hüllen der Atome im Kristall an und heben sie damit auf ein höheres Energieniveau. Im Kristall werden somit Elektronen und Löcher freigesetzt, wenn diese sofort rekombinieren würden, würde ein hochenergetisches Photon entstehen, dieses hätte die gleiche Abregunsenergie wie die Anregungsenergie von $NaI$, damit kann es nicht im Szintillator gemessen werden.\\
 	Die Lösung ist, dass der Kristall dotiert wird, bei $NaI$ typischerweise mit Thallium. Dadurch werden zusätzliche Energieniveaus in dem Kristall hinzugefügt. So wandern die Elektronen und Löcher über diese Niveaus zu den sogenannten Lumineszenzzentren. Dieses angeregte Zentrum, regt sich über die Aussendung von optischen Photonen habt. Diese haben nun deutliche geringere Energien, im sichtbaren oder UV-Bereich und können durch den Kristall zum Photomultiplier wandern.\\
 	Wenn ein optisches Photon auf die Photokathode des Photomultipliers trifft, kann durch den Photoeffekt ein Photoelektron entstehen. Dieser Prozess ist abhängig von der Quanteneffizienz des Anoden Materials, dass bedeutet nicht jedes Photon erzeugt ein Photoelektron. Falls ein Elektron entstandenen ist, wird es auf ein Elektrode gelenkt, trifft es auf dieser sogenannten Dynode, schlägt es weitere Elektronen heraus. Diese treffen erneut auf eine weitere Dynode, der Prozess wiederholt sich einige Male. So einstehen durch ein Schneeballsystem viele Elektronen, die so einstehende Ladung kann gemessen werden.  
@@ -245,7 +254,7 @@
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/MyonenLandau.pdf}		
-		\caption{Energiedepositspektrum der kosmischen Myonen im Szintillator, mit einem qualitativer einer Landauverteilung}
+		\caption{Energiedepositspektrum der kosmischen Myonen im Szintillator, mit einer qualitativer Landauverteilung}
 		\label{img:MyonenLandau}
 	\end{figure}
 	\section{Zeiteichung}
@@ -310,7 +319,11 @@
 	
 	\begin{thebibliography}{111} %\addcontentsline{toc}{chapter}{Literaturverzeichnis}
 		\bibitem{Anleitung}
-		\fehlt
+		Dr. Hans Georg Zaunick, Stefan Diehl. \glqq Bestimmung der Lebensdauer von Myonen\grqq. Überarbeitete und aktualisierte Version. Aus: II. Physikalisches Institut
+		Uni Gießen (2024).
+		
+		\bibitem{PDGLeptonen}
+		Pdg. (2024) pdgLive. Retrieved June 24, 2024, from \url{https://pdglive.lbl.gov/Particle.action?node=S004&init=0}
 		
 		
 		
