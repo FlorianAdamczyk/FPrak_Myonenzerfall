@@ -205,7 +205,7 @@
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/Energiemessung.pdf}		
-		\caption{Messprinzip der Energiemessung, simpler Aufbau aus Szintillator mit PMT, Verstärker und ADC}
+		\caption[Messprinzip Energiemessung]{Messprinzip der Energiemessung, simpler Aufbau aus Szintillator mit PMT, Verstärker und ADC}
 		\label{img:EnergieAufbau}
 	\end{figure}
 	\subsection{Messprinzip der Zeitmessung}
@@ -213,14 +213,14 @@
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/ZeitmessungEinfach.pdf}		
-		\caption{Schematischer Aufbau der Zeitmessung, jedes Signal wird als Start und Stop Signal verwendet, wobei dem Start ein Delay hinzugefügt wird }
+		\caption[Schematischer Aufbau der Zeitmessung]{Schematischer Aufbau der Zeitmessung, jedes Signal wird als Start und Stop Signal verwendet, wobei dem Start ein Delay hinzugefügt wird }
 		\label{img:ZeitEinfach}
 	\end{figure}
 	Durch eine Verzögerung von \SI{150}{\nano \second}, kommt das Startsignal nach dem Stoppsignal im Time to Pulse Height Converter (TPC) an. Der TPC liefert ein Signal welches proportional zur Zeitdifferenz zwischen Start und Stopp ist. Mit Hilfe dieser Differenz, kann die Lebensdauer ermittelt werden.\\
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/ZeitmessungKomplex.pdf}		
-		\caption{Vollständiger schematischer Messaufbau}
+		\caption[schematischer Messaufbau]{Vollständiger schematischer Messaufbau}
 		\label{img:ZeitmessungKomplex}
 	\end{figure}
 	Der vollständige Messaufbau mit allen Komponenten ist in \ref{img:ZeitmessungKomplex} abgebildet, im Gegensatz zum prinzipiellen Aufbau aus Abbildung \ref{img:ZeitEinfach}, sind elektronische Komponenten hinzugekommen. Wie zum Beispiel ein Timing Filter Amplifier (TFA), dieser Verstärkt das Signal, ohne es stark zu verzerren. Der erste Diskriminator soll den natürlichen radioaktiven Untergrund abschneiden. Das um \SI{150}{\nano \second} Verzögerte Signal, wird in einem weiteren Diskriminator wieder zum guten Rechtecksignal verarbeitet. weil es durch die lange Kabelführung im Delay verzerrt wird. Der TPC welcher die Zeitdifferenz von Start uns Stopp ermittelt, gibt zusätzlich zu seiner grundsätzlichen Arbeitsweise, noch ein logisches Signal bei jedem "Start" aus. Dieses wird an einen Scaler gegeben, welcher einfach die Ereignisse zählt.
@@ -238,15 +238,15 @@
 		\begin{figure}[ht]
 			\centering
 			\includegraphics[width=\textwidth]{Bilder/GammaCo60.pdf}		
-			\caption{Gammspektrum der \isotope[60]{Co}-Probe, es lassen sich die 2 Gamma Peaks erkennen, in der logarithmischen Darstellung, ist auch der Summenpeak deutlich sichtbar}
+			\caption[Gammspektrum der \ce{^60Co}-Probe]{Gammspektrum der \isotope[60]{Co}-Probe, es lassen sich die zwei Gamma Peaks erkennen, in der logarithmischen Darstellung, ist auch der Summenpeak deutlich sichtbar}
 			\label{img:GammaCo60}
 		\end{figure}
-	Mit Hilfe der Kenntnis über die ungefähre Lage des Summenpeaks, soll der Verstärker so eingestellt werden, dass ein Energiebereich für die minimal ionisierenden
-	Myonen gewählt wird, da diese das Ziel der eigentlichen Messung sind. (Energiebereichschätzung sollte erwähnt werden \fehlt)
+	Mit Hilfe der Kenntnis über die ungefähre Lage des Summenpeaks aus Kapitel \ref{ch:Mess}, soll der Verstärker so eingestellt werden, dass ein Energiebereich für die minimal ionisierenden
+	Myonen gewählt wird, da diese das Ziel der eigentlichen Messung sind.
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/gesamterEnBereich.pdf}		
-		\caption{Gesamtes Energiespektrum, welches während der Zeitmessung verwendet wird}
+		\caption[Energiespektrum]{Gesamtes Energiespektrum, welches während der Zeitmessung verwendet wird}
 		\label{img:gesamterEnBereich}
 	\end{figure}
 	Der gesamte Energiebereich ist in Abbildung \ref{img:gesamterEnBereich} zu erkennen, es ist erneut logarithmisch aufgetragen. Auf der linken Seite ist noch die \isotope[60]{Co}-Quelle zu erkennen. zwischen den Kanälen 3000 und 8000, befinden sich die Energieeinträge der kosmischen Myonen. Da sie eine hohe Energie besitzen und nur durch eine relativ dünne Schicht zur Ionisation fliegen, sollte ihr Energiedeposit nach Bethe-Bloch einer Landau-Verteilung entsprechen.\\
@@ -254,14 +254,14 @@
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/MyonenLandau.pdf}		
-		\caption{Energiedepositspektrum der kosmischen Myonen im Szintillator, mit einer qualitativer Landauverteilung}
+		\caption[Energiedepositspektrum]{Energiedepositspektrum der kosmischen Myonen im Szintillator, mit einer qualitativer Landauverteilung}
 		\label{img:MyonenLandau}
 	\end{figure}
 	\section{Zeiteichung}
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/zeitEich.pdf}		
-		\caption{Spektrum der Zeiteichung, zu sehen sind die einzelnen Peaks für die jeweiligen Verzögerungen, angefangen bei \SI{300}{\nano \s} und in \SI{150}{\nano \s} Schritten bis \SI{1800}{\nano \s}}
+		\caption[Spektrum der Zeiteichung]{Spektrum der Zeiteichung, zu sehen sind die einzelnen Peaks für die jeweiligen Verzögerungen, angefangen bei \SI{300}{\nano \s} und in \SI{150}{\nano \s} Schritten bis \SI{1800}{\nano \s}}
 		\label{img:zeitEich}
 	\end{figure}
 	Der ADC gibt Kanäle an den Computer, diese müssen mittels einer Zeiteichung in Zeitwerte [s] umgerechnet werden. Dafür werden bekannte Verzögerungen vor das Stop-Signal in die Messstrecke eingebaut. Im aufgenommen Spektrum \ref{img:zeitEich}, sind die Zeitpeaks für die jeweiligen Verzögerungen erkennbar.\\
@@ -298,7 +298,7 @@
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/timeLinearFit.pdf}		
-		\caption{Gewichteter linearer Fit, der Kanallagen zu den Verzögerungen, wobei die Fehler der Kanallagen sehr klein sind und deshalb nicht im Plot erkennbar sind}
+		\caption[linearer Fit der Kanallagen]{Gewichteter linearer Fit, der Kanallagen zu den Verzögerungen, wobei die Fehler der Kanallagen sehr klein sind und deshalb nicht im Plot erkennbar sind}
 		\label{img:timeLinearFit}
 	\end{figure}
 	Damit besteht nun folgender Zusammenhang zwischen Zeitdifferenz $\Delta t$ und dem Kanal $K$:
@@ -336,7 +336,7 @@
 	\begin{figure}[ht]
 	\centering
 	\includegraphics[width=\textwidth]{Bilder/timeGaussFits.pdf}		
-	\caption{Gaußfits der einzelnen Zeitmessungen für die Zeiteichung}
+	\caption[Übersicht der Gaußfits]{Gaußfits der einzelnen Zeitmessungen für die Zeiteichung}
 	\label{img:TimeGauss}
 \end{figure}
 
