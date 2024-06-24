@@ -252,8 +252,8 @@
 		\caption[Energiespektrum]{Gesamtes Energiespektrum, welches während der Zeitmessung verwendet wird}
 		\label{img:gesamterEnBereich}
 	\end{figure}
-	Der gesamte Energiebereich ist in Abbildung \ref{img:gesamterEnBereich} zu erkennen; es ist erneut logarithmisch aufgetragen. Auf der linken Seite ist noch die \isotope[60]{Co}"~Quelle zu erkennen. zwischen den Kanälen 3000 und 8000 befinden sich die Energieeinträge der kosmischen Myonen. Da sie eine hohe Energie besitzen und nur durch eine relativ dünne Schicht zur Ionisation fliegen, sollte ihr Energiedeposit nach Bethe-Bloch einer Landau-Verteilung entsprechen.\\
-	Deshalb wurde in Abbildung \ref{img:MyonenLandau}, das Energiespektrum im entsprechenden Bereich erneut geplottet. Zudem wurden jeweils 16 Kanäle zu einem zusammengefasst, sodass nur noch 512 übrig bleiben, weil es sehr wenige Einträge pro Kanal gibt. Qualitativ wurde eine Landau-Verteilung an die Daten gefittet; quantitative Werte können ohne eine komplette Energieeichung nicht angegeben werden. Die Verteilung passt sich gut an die Daten, auf der linken Seite des Spektrums sind vermutlich noch Resteffekte von radioaktiver Strahlung erkennbar. 
+	Der gesamte Energiebereich ist in Abbildung~\ref{img:gesamterEnBereich} zu erkennen; es ist erneut logarit		Nakamura, K. et al. (2010).\@ Review of Particle Physics. Journal of Physics G: Nuclear and Particle Physics, 37(7A), 075021.0 befinden sich die Energieeinträge der kosmischen Myonen. Da sie eine hohe Energie besitzen und nur durch eine relativ dünne Schicht zur Ionisation fliegen, sollte ihr Energiedeposit nach Bethe-Bloch einer Landau-Verteilung entsprechen.\\
+	Deshalb wurde in Abbildung~\ref{img:MyonenLandau}, das Energiespektrum im entsprechenden Bereich erneut geplottet. Zudem wurden jeweils 16 Kanäle zu einem zusammengefasst, sodass nur noch 512 übrig bleiben, weil es sehr wenige Einträge pro Kanal gibt. Qualitativ wurde eine Landau-Verteilung an die Daten gefittet; quantitative Werte können ohne eine komplette Energieeichung nicht angegeben werden. Die Verteilung passt sich gut an die Daten, auf der linken Seite des Spektrums sind vermutlich noch Resteffekte von radioaktiver Strahlung erkennbar. 
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/MyonenLandau.pdf}		
@@ -267,17 +267,17 @@
 		\caption[Spektrum der Zeiteichung]{Spektrum der Zeiteichung, zu sehen sind die einzelnen Peaks für die jeweiligen Verzögerungen, angefangen bei \SI{300}{\nano \s} und in \SI{150}{\nano \s} Schritten bis \SI{1800}{\nano \s}}
 		\label{img:zeitEich}
 	\end{figure}
-	Der ADC gibt Kanäle an den Computer; diese müssen mittels einer Zeiteichung in Zeitwerte [s] umgerechnet werden. Dafür werden bekannte Verzögerungen vor dem Stoppsignal in die Messstrecke eingebaut. Im aufgenommenen Spektrum \ref{img:zeitEich} sind die Zeitpeaks für die jeweiligen Verzögerungen erkennbar.\\
+	Der ADC gibt Kanäle an den Computer; diese müssen mittels einer Zeiteichung in Zeitwerte [s] umgerechnet werden. Dafür werden bekannte Verzögerungen vor dem Stoppsignal in die Messstrecke eingebaut. Im aufgenommenen Spektrum~\ref{img:zeitEich} sind die Zeitpeaks für die jeweiligen Verzögerungen erkennbar.\\
 	Diese Messdaten haben einen statistischen Fehler; dies hat zur Folge, dass die Messdaten gaußverteilt sind. Die Gaußverteilung ist gegeben durch:
 	\begin{equation}
-		f(x) = A \cdot exp\left(- \frac{(x-\mu)^2}{2 \sigma ^2}\right)
+		f(x) = A \cdot \exp\left(- \frac{(x-\mu)^2}{2 \sigma ^2}\right)
 	\end{equation}
-	Wobei $A$ die Höhe des Peaks ist, $\mu$ die Lage, beziehungsweise der Erwartungswert und $\sigma$ die Standardabweichung. Die Ereignisse für den Erwartungswert der Kanallagen für die Fits sind in Tabelle \ref{table:TimeFits} aufgelistet. Die Fits mit allen Parametern sind im Anhang des Protokolls zu finden: \ref{img:TimeGauss}.
+	Wobei $A$ die Höhe des Peaks ist, $\mu$ die Lage, beziehungsweise der Erwartungswert und $\sigma$ die Standardabweichung. Die Ereignisse für den Erwartungswert der Kanallagen für die Fits sind in Tabelle~\ref{table:TimeFits} aufgelistet. Die Fits mit allen Parametern sind im Anhang des Protokolls zu finden:~\ref{img:TimeGauss}.
 	\begin{table}
 		\centering
 		\begin{tabular}{cc}
 			\toprule[1.5pt]
-			Verzögerung [\si{\nano \s}] & Kanallage mit Fehler\\ 
+			Verzögerung [\si{\nano\s}]& Kanallage mit Fehler\\
 			\midrule
 			300	 & 179.365 $\pm$ 0.032 \\
 			450	 & 319.563 $\pm$ 0.143 \\
@@ -294,15 +294,13 @@
 			
 			\bottomrule[1.5pt]
 		\end{tabular}
-		\caption{}
-		\label{table:TimeFits}
+		\caption{}\label{table:TimeFits}
 	\end{table}
-	Zwischen dem Kanal und der bekannten Verzögerung besteht ein linearer Zusammenhang. Diese lineare Funktion wurde mittels einer gewichteten linearen Regression ermittelt, anzumerken sei, dass die Fehler der Kanallagen sehr klein sind, sodass sie kaum einen Einfluss auf den Fit haben \ref{img:timeLinearFit}.
+	Zwischen dem Kanal und der bekannten Verzögerung besteht ein linearer Zusammenhang. Diese lineare Funktion wurde mittels einer gewichteten linearen Regression ermittelt, anzumerken sei, dass die Fehler der Kanallagen sehr klein sind, sodass sie kaum einen Einfluss auf den Fit haben~\ref{img:timeLinearFit}.
 	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=\textwidth]{Bilder/timeLinearFit.pdf}		
-		\caption[linearer Fit der Kanallagen]{Gewichteter linearer Fit der Kanallagen zu den Verzögerungen, wobei die Fehler der Kanallagen sehr klein sind und deshalb nicht im Plot erkennbar sind}
-		\label{img:timeLinearFit}
+		\caption[linearer Fit der Kanallagen]{Gewichteter linearer Fit der Kanallagen zu den Verzögerungen, wobei die Fehler der Kanallagen sehr klein sind und deshalb nicht im Plot erkennbar sind}\label{img:timeLinearFit}
 	\end{figure}
 	Damit besteht nun folgender Zusammenhang zwischen Zeitdifferenz $\Delta t$ und dem Kanal $K$:
 	\begin{equation}
@@ -312,8 +310,7 @@
 
 		
 	\section{Lebensdauerbestimmung}
-		\fehlt
-
+		\fehlt!!!
 
 \chapter{Fazit}
 
