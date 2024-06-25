@@ -337,7 +337,27 @@
 	\begin{equation}
 		N_{Poiss} = N_{ges} \cdot P_{\mu} (\Delta t, n  \geq 1) = 0.371
 	\end{equation}
-	Dies bedeutet im Durchschnitt, sind jedem bin 0.37 Einträge dem Untergrund zuzuordnen, diese Anzahl wird jedem Eintrag abgezogen.  
+	Dies bedeutet im Durchschnitt, sind jedem Bin 0.37 Einträge dem Untergrund zuzuordnen, diese Anzahl wird jedem Eintrag abgezogen. Dies ist im Vergleich zu den jeweiligen Einträgen der Bins ein geringer Untergrund. Die Daten, mit den gerade erläuterten Bearbeitungsschritten sind in Abbildung \ref{img:langzeitMess} aufgetragen. \\
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=\textwidth]{Bilder/langzeitMess.pdf}		
+		\caption[Langzeitmessung]{Daten der Langzeitmessung mit, \textit{rebinning}, statistischen Fehler, Zeitskalierung und dem Abzug des Poisson-Untergrunds}
+		\label{img:langzeitMess}
+	\end{figure}
+	Wie im Theorieteil beschrieben folgen die Messdaten einer Exponentialfunktion, in Abbildung \ref{img:langzeitMess}, ist zu erkennen, dass solch eine Funktion sinnvoll erst ab einer Zeitdifferenz von etwa \SI{2400}{\nano \s} gefittet werden kann. Dadurch verschlechtert sich die Statistik, von den ursprünglichen 3673 Einträgen, kann nur an etwa 1200 gefittet werden. Es wird folgende Funktion mit einem gewichteten Fit verwendet:
+	\begin{equation}
+		N(\Delta t) = N_0 \cdot e^{-\lambda \Delta t}
+	\end{equation}
+	\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/FitlangzeitMess.pdf}		
+	\caption[Fit der Langzeitmessung]{exponentieller gewichteter Fit des ausgewählten Bereichs für die Datenpunkte, unten auch in logarithmischer Darstellung}
+		\label{img:FitlangzeitMess}
+	\end{figure}
+	Das Ergebnis des Fits ist in Abbildung \ref{img:FitlangzeitMess}, sowohl mit linearer Achse, als auch logarithmisch aufgetragen. Die Konstante $\lambda$ hat den Wert \SI{5.8494(0.2542)E-4}{\nano \s}. Die mittlere Lebensdauer lässt sich einfach durch ihr reziprokes bestimmen:
+	\begin{equation}
+		\tau = \frac{1}{\lambda} = \underline{\SI{1709.579(74.296)}{\nano \s}}
+	\end{equation}
 \chapter{Fazit}
 
 	\listoffigures
