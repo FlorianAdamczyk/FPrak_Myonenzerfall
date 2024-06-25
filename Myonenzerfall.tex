@@ -310,8 +310,34 @@
 
 		
 	\section{Lebensdauerbestimmung}
-		\fehlt!!!
-
+	Nach den beiden beschriebenen Eichprozessen, kann die eigentliche Langzeitmessung beginnen. Start der Messung war am 31.05.2024 um 13:45, beednet wurde die Messung 10 Tage später am 10.05.2024 um 16:08. Daraus folgt eine Messdauer von:
+	\begin{equation}
+		T_{ges} =  \SI{10}{\day} \; \SI{2}{\hour} \; \SI{23}{\minute} \equiv  \SI{872580}{\second}
+	\end{equation}
+	Dabei sind insgesamt $1.7$ Mio. Myonen durch den Szintillator geflogen, aber nur etwa $3600$ von diesen, sind als im Szintillator feststeckendes Ereignis aufgezeichnet wurden.
+	\begin{itemize}
+		\item $N_{ges} = 1.7E6$
+		\item $N_{mess} = 3673$
+	\end{itemize}
+	Wie schon mal beschreiben hat der ADC 8064 Kanäle, diese feine Auflösung, führt dazu, dass in den hinteren Kanälen keine oder sehr wenige Einträge sind, da die Messergebnisse exponentiell abfallen. Die Lösung ist das sogenannte \textit{rebinning}, hierfür werden mehrere Kanäle zu einem neuen Zusammengefasst, ihrer Einträge dafür addiert. Es wurde in dieser Auswertung der Faktor 128 gewählt, dadurch wird auf 63 Bins reduziert, keiner der neuen Bins hat den Eintrag null.\\
+	Diese Bins haben einen statistischen Fehler, dieser ermittelt sich gerade aus der Quadratwurzel ihrer Einträge $\sqrt{N}$. Zudem muss die im vorherigen Kapitel ermittelte Zeiteichung angewandt werden, sodass den Bins Zeitwerte zugeordnet werden können. Dafür wird die ermittelte lineare Zeiteichung auf die Kanäle angewandt, wichtig hierbei ist, dass die neue Binbreite beachtet wird. Weil die Eichung für 8064 Kanäle durchgeführt wurde, muss nun noch mit dem Faktor 128 Multipliziert werden, damit die richtigen Zeitwerte ermittelt werden können. Der Fehler dieser Eichung wird vernachlässigt, weil er um viele Größenordnungen kleiner ist, als der statistische Fehler der jeweiligen Bineinträge.\\
+	Zuletzt muss das Ereignis betrachtet werden, dass es passieren kann, das zwei voneinander unabhängige Myonen ein Zeitsignal auslösen, weil sie in einem sehr kurzen Abstand durch den Detektor fliegen. Ermittelt kann dieser Effekt mittels der Poisson-Statistik, sie gibt an wie Wahrscheinlich es ist, dass Ereignisse unabhängig voneinander in einem Zeitintervall geschehen. Der hier relevante,m zu betrachtende Fall ist, wie hoch die Wahrscheinlichkeit für mindestens ein unabhängiges Ereignis in einem Zweitintervall ist:
+	\begin{equation}
+		P_{\mu} (\Delta t, n  \geq 1) = \sum_{n = 1}^{\infty} \frac{(\mu \Delta t)^n}{n !} e^{-\mu \Delta t} = 1- e^{-\mu \Delta t}
+	\end{equation}
+	Dabei ist $\Delta t$ das zu betrachtende Zeitintervall, dieses entspricht der Breite eines Kanals, nach dem \textit{rebinning} ist ein Kanal \SI{112}{\nano \s} Breit, zudem ist $\mu$ die mittlere Ereignisrate, sie bestimmt sich folgendermaßen: 
+	\begin{equation}
+		\mu = \frac{\text{Ereignisse}}{\text{Messzeit}} = \frac{N_{ges}}{T_{ges}} = \frac{1.7E6}{\SI{872580}{\second}} = \SI{1.948}{\per \second}
+	\end{equation}
+	Damit bestimmt sich die Wahrscheinlichkeit zu:
+	\begin{equation}
+			P_{\mu} (\Delta t, n  \geq 1) = 1- e^{-\mu \Delta t} = 2.183E-7
+	\end{equation}
+	Aus dieser Wahrscheinlichkeit, kann mit der Anzahl aller Ereignisse die Anzahl an benötigten Untergrundereignissen berechnet werden:
+	\begin{equation}
+		N_{Poiss} = N_{ges} \cdot P_{\mu} (\Delta t, n  \geq 1) = 0.371
+	\end{equation}
+	Dies bedeutet im Durchschnitt, sind jedem bin 0.37 Einträge dem Untergrund zuzuordnen, diese Anzahl wird jedem Eintrag abgezogen.  
 \chapter{Fazit}
 
 	\listoffigures
