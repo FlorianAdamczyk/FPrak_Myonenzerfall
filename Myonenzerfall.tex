@@ -156,7 +156,7 @@
     Aufgrund ihrer kurzen Lebensdauer von etwa \qty{2.2}{\micro\second} im Ruhesystem stellt sich die Frage, wie sie die Erdoberfläche erreichen können. Hier kommt die spezielle Relativitätstheorie ins Spiel: Durch die Zeitdilatation wird die Lebensdauer der Myonen relativ zur Erdoberfläche verlängert, sodass sie mehrere Kilometer zurücklegen können, bevor sie zerfallen.   
     Aus Inertialsystem der Myonen betrachtet erfahren sie aufgrund der Lorentz-Kontraktion eine Längenverkürzung in Bewegungsrichtung, was ihre Wahrscheinlichkeit erhöht, die Erdatmosphäre zu durchdringen. \\
 	
-	In Experimenten wird die Zerfallszeit der Myonen gemessen, indem die Produkte ihres Zerfalls, ein Elektron und ein Antielektron-Neutrino, detektiert werden. Für diese Messungen werden \ce{NaI}"~Szintillationsdetektoren eingesetzt, die die Energiedeposition der minimal ionisierenden Myonen bestimmen. 
+	In Experimenten wird die Zerfallszeit der Myonen gemessen, indem die Produkte ihres Zerfalls, ein Elektron und ein Antielektron-Neutrino, detektiert werden. Für diese Messungen werden \ce{NaI}"~ eingesetzt, die die Energiedeposition der minimal ionisierenden Myonen bestimmen. 
 
 		\begin{figure}[ht]
 		\centering
@@ -222,11 +222,18 @@
 	Durch eine Verzögerung von \SI{150}{\nano \second} kommt das Startsignal nach dem Stoppsignal im Time"~to"~Pulse"~Height"~Converter (TPC) an. Der TPC liefert ein Signal, welches proportional zur Zeitdifferenz zwischen Start und Stopp ist. Mithilfe dieser Differenz kann die Lebensdauer ermittelt werden.\\
 	\begin{figure}[ht]
 		\centering
-		\includegraphics[width=\textwidth]{Bilder/ZeitmessungKomplex.pdf}		
+		\includegraphics[width=0.6\textwidth]{Bilder/ZeitmessungKomplex.pdf}		
 		\caption[schematischer Messaufbau]{Vollständiger schematischer Messaufbau}
 		\label{img:ZeitmessungKomplex}
 	\end{figure}
 	Der vollständige Messaufbau mit allen Komponenten ist in \ref{img:ZeitmessungKomplex} abgebildet; im Gegensatz zum prinzipiellen Aufbau aus Abbildung \ref{img:ZeitEinfach}, sind elektronische Komponenten hinzugekommen. Wie zum Beispiel ein Timing Filter Amplifier (TFA), dieser verstärkt das Signal, ohne es stark zu verzerren. Der erste Diskriminator soll den natürlichen radioaktiven Untergrund abschneiden. Das \SI{150}{\nano \second} verzögerte Signal wird in einem weiteren Diskriminator wieder zum guten Rechtecksignal verarbeitet. weil es durch die lange Kabelführung im Delay verzerrt wird. Der TPC welcher die Zeitdifferenz von Start und Stopp ermittelt, gibt zusätzlich zu seiner grundsätzlichen Arbeitsweise noch ein logisches Signal bei jedem "Start" aus. Dieses wird an einen Scaler gegeben, welcher einfach die Ereignisse zählt.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\textwidth]{Bilder/Oszi.jpg}		
+		\caption[Oszilliskop]{Hier erkennt man im Oszilloskopdisplay die einzelnen Ausschläge der energetischen kosmischen Teilchen}
+		\label{img:Oszi}
+	\end{figure}
 	
 	
 	
@@ -252,7 +259,7 @@
 		\caption[Energiespektrum]{Gesamtes Energiespektrum, welches während der Zeitmessung verwendet wird}
 		\label{img:gesamterEnBereich}
 	\end{figure}
-	Der gesamte Energiebereich ist in Abbildung~\ref{img:gesamterEnBereich} zu erkennen; es ist erneut logarithmisch aufgetragen. In \emph{Nakamura, K. et al. (2010).\@ Review of Particle Physics. Journal of Physics G: Nuclear and Particle Physics, 37(7A), 075021.0} befinden sich die Energieeinträge der kosmischen Myonen. Da sie eine hohe Energie besitzen und nur durch eine relativ dünne Schicht zur Ionisation fliegen, sollte ihr Energiedeposit nach Bethe-Bloch einer Landau-Verteilung entsprechen.\\
+	Der gesamte Energiebereich ist in Abbildung~\ref{img:gesamterEnBereich} zu erkennen; es ist erneut logarithmisch aufgetragen. In \cite{Nakamura} befinden  sich die Energieeinträge der kosmischen Myonen. Da sie eine hohe Energie besitzen und nur durch eine relativ dünne Schicht zur Ionisation fliegen, sollte ihr Energiedeposit nach Bethe-Bloch einer Landau-Verteilung entsprechen.\\ %ist das richtig so?!?! das kommt mir iwiekomisch vor...
 	Deshalb wurde in Abbildung~\ref{img:MyonenLandau}, das Energiespektrum im entsprechenden Bereich erneut geplottet. Zudem wurden jeweils 16 Kanäle zu einem zusammengefasst, sodass nur noch 512 übrig bleiben, weil es sehr wenige Einträge pro Kanal gibt. Qualitativ wurde eine Landau-Verteilung an die Daten gefittet; quantitative Werte können ohne eine komplette Energieeichung nicht angegeben werden. Die Verteilung passt sich gut an die Daten, auf der linken Seite des Spektrums sind vermutlich noch Resteffekte von radioaktiver Strahlung erkennbar. 
 	\begin{figure}[ht]
 		\centering
@@ -319,7 +326,7 @@
 		\item $N_{ges} = 4.487E6$
 		\item $N_{mess} = 9643$
 	\end{itemize}
-	Wie schon mal beschreiben hat der ADC 8064 Kanäle, diese feine Auflösung, führt dazu, dass in den hinteren Kanälen keine oder sehr wenige Einträge sind, da die Messergebnisse exponentiell abfallen. Die Lösung ist das sogenannte \textit{rebinning}, hierfür werden mehrere Kanäle zu einem neuen Zusammengefasst, ihrer Einträge dafür addiert. Es wurde in dieser Auswertung der Faktor 144 gewählt, dadurch wird auf 56 Bins reduziert, keiner der neuen Bins hat den Eintrag null.\\
+	Wie schon mal beschreiben hat der ADC 8064 Kanäle, diese feine Auflösung, führt dazu, dass in den hinteren Kanälen keine oder sehr wenige Einträge sind, da die Messergebnisse exponentiell abfallen. Die Lösung ist das sogenannte \textit{rebinning}, hierfür werden mehrere Kanäle zu einem neuen Zusammengefasst, ihrer Einträge dafür addiert. Es wurde in dieser Auswertung die Binning 128, 144 und 168 ausprobiert wobei letztendlich der Faktor 144 gewählt wurde. Dieses Binning lieferte das genaueste Ergebnis. Dadurch wird die Messung auf 56 Bins reduziert, keiner der neuen Bins hat den Eintrag null.\\
 	Diese Bins haben einen statistischen Fehler, dieser ermittelt sich gerade aus der Quadratwurzel ihrer Einträge $\sqrt{N}$. Zudem muss die im vorherigen Kapitel ermittelte Zeiteichung angewandt werden, sodass den Bins Zeitwerte zugeordnet werden können. Dafür wird die ermittelte lineare Zeiteichung auf die Kanäle angewandt, wichtig hierbei ist, dass die neue Binbreite beachtet wird. Weil die Eichung für 8064 Kanäle durchgeführt wurde, muss nun noch mit dem Faktor 128 Multipliziert werden, damit die richtigen Zeitwerte ermittelt werden können. Der Fehler dieser Eichung wird vernachlässigt, weil er um viele Größenordnungen kleiner ist, als der statistische Fehler der jeweiligen Bineinträge.\\
 	Zuletzt muss das Ereignis betrachtet werden, dass es passieren kann, das zwei voneinander unabhängige Myonen ein Zeitsignal auslösen, weil sie in einem sehr kurzen Abstand durch den Detektor fliegen. Ermittelt kann dieser Effekt mittels der Poisson-Statistik, sie gibt an wie Wahrscheinlich es ist, dass Ereignisse unabhängig voneinander in einem Zeitintervall geschehen. Der hier relevante,m zu betrachtende Fall ist, wie hoch die Wahrscheinlichkeit für mindestens ein unabhängiges Ereignis in einem Zweitintervall ist:
 	\begin{equation}
@@ -356,12 +363,13 @@
 	\end{figure}
 	Das Ergebnis des Fits ist in Abbildung \ref{img:FitlangzeitMess}, sowohl mit linearer Achse, als auch logarithmisch aufgetragen. Die Konstante $\lambda$ hat den Wert \SI{4.9(0.166)E-4}{\micro \s}. Die mittlere Lebensdauer lässt sich einfach durch ihr reziprokes bestimmen:
 	\begin{equation}
-		\highlight{\tau} = \frac{1}{\lambda} = \highlight{\SI{2040.702(68.934)}{\nano \s}}
+		\highlight{\tau_{exp}} = \frac{1}{\lambda} = \highlight{\SI{2040.702(68.934)}{\nano \s}}
 	\end{equation}
 \chapter{Fazit}
-	In diesem
+	In diesem Versuch konnte die Lebensdauer von Myonen aus der kosmischen Strahlung relativ genau bestimmt werden. Die in dieser Messung ermittelte Lebensdauer von \hl{$\tau_{exp}=\qty{2.04}{\micro\s}$} weicht um etwa \highlight{\qty{7.11}{\percent}} von dem Literaturwert $\tau_{lit}=\qty{2.196}{\micro\s}$ ab.\\
+	Leider liegt der Literaturwert nicht im Fehlerbereich der Messung. Dies könnte an fehlender Statistik liegen, auch wenn unsere Messdaten einen Zeitraum abbilden der mehr als doppelt so lang ist wie in der Anleitung \cite{Anleitung} empfohlen. Trotzdem hat der längere Messzeitraum die Genauigkeit des Ergebnisses Erheblich erhöht. Um noch genauere Ergebnisse zu erhalten wäre eventuell eine noch längere Messdauer oder empfindlichere Szintillationsdetektoren vonnöten. \\
 	
-	\fehlt
+	Zusammenfassend zeigt der Versuch trotz der Abweichungen, dass die experimentellen Methoden zur Bestimmung der Myonenlebensdauer grundsätzlich geeignet sind und mit entsprechenden Anpassungen und Verbesserungen noch präzisere Ergebnisse liefern können. Die gewonnenen Erkenntnisse bieten eine solide Grundlage für weiterführende Untersuchungen und Experimente im Bereich der Teilchenphysik.
 	
 
 	\listoffigures
