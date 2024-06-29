@@ -11,7 +11,7 @@
 *.synctex.gz
 *.syntex*
 
-Myonenzerfall.pdf
+#Myonenzerfall.pdf
 
 # R zeug
 .Rhistory
